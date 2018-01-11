@@ -1,0 +1,4 @@
+﻿  Game.cpp
+d:\users\jack\documents\visual studio 2015\#actualprojects\dodger\dodger\dodger\game.cpp(11): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  Dodger.vcxproj -> D:\Users\Jack\Documents\Visual Studio 2015\#ActualProjects\Dodger\Dodger\Debug\Dodger.exe
+  Dodger.vcxproj -> D:\Users\Jack\Documents\Visual Studio 2015\#ActualProjects\Dodger\Dodger\Debug\Dodger.pdb (Full PDB)
