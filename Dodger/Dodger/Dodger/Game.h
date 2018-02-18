@@ -9,6 +9,7 @@
 #include "Timer.h"
 #include "const.h"
 #include "TextTexture.h"
+#include "Audio.h"
 
 #include <list>
 #include <iostream>
@@ -36,6 +37,7 @@ public:
 private:
 	SDL_Renderer* renderer;
 	SDL_Window* window;
+	Mix_Music* music;
 
 	SDL_Event e;
 
@@ -50,7 +52,9 @@ private:
 	Player* player;
 	Star* largeStar;
 	Star* star;
+	Audio* audio;
 	TextTexture* textTexture;
+
 
 	unsigned int currentScore;
 	unsigned int bestScore;

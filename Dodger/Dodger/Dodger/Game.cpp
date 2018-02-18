@@ -4,6 +4,7 @@ Game::Game()
 {
 	window = NULL;
 	renderer = NULL;
+	music = NULL;
 }
 
 bool Game::Init()
@@ -58,6 +59,19 @@ void Game::newGame()
 	delete textTexture;
 	player = new Player(renderer, "player.png");
 	textTexture = new TextTexture(renderer);
+
+	Mix_VolumeMusic(20);
+	music = Mix_LoadMUS("spaceMusic.mp3");
+	if (music == NULL)
+	{
+		std::cout << "Failed to load music.\n";
+	}
+
+	if (Mix_PlayingMusic() == 0)
+	{
+		//Play the music
+		Mix_PlayMusic(music, -1);
+	}
 
 	asteroidSpawnRate = 25;
 
@@ -160,6 +174,7 @@ void Game::Render()
 			player->getLeftCollider(),
 			player->getRightCollider()))
 		{
+			audio->playSound("AsteroidHit.wav");
 			newGame();
 			SDL_Delay(1000);
 			return;
@@ -297,8 +312,11 @@ void Game::Clean()
 	renderer = NULL;
 	window = NULL;
 
+	Mix_FreeMusic(music);
+	music = NULL;
+
 	SDL_Quit();
 	IMG_Quit();
 	TTF_Quit();
-	//Mix_Quit();
+	Mix_Quit();
 }
